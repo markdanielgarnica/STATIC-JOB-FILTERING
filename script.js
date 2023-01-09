@@ -234,8 +234,8 @@
           (val) =>
             val === role ||
             val === level ||
-            languages.some((e) => e === val) ||
-            tools.some((e) => e === val)
+            languages.includes(val) ||
+            tools.includes(val)
         )
       ) {
         return {};
@@ -253,7 +253,7 @@
 
     const val = Object.values(targetElement.dataset).join("");
 
-    if (arFiltered.some((ele) => ele === val)) return;
+    if (arFiltered.includes(val)) return;
 
     const caps = `
 	  <div class="capsule" data-remove="${val}">
